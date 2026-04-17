@@ -1,0 +1,17 @@
+{
+  "name": "internet-hero-ui-suite",
+  "version": "1.0.0",
+  "description": "UI Automation Test Suite for The-Internet HerokuApp using Playwright JS",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report",
+    "test:auth": "npx playwright test tests/01-form-auth.spec.js",
+    "test:dropdowns": "npx playwright test tests/02-dropdowns-checkboxes.spec.js",
+    "test:dynamic": "npx playwright test tests/03-dynamic-loading.spec.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}
