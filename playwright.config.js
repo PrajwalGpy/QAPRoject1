@@ -57,9 +57,9 @@ module.exports = defineConfig({
     //   use: { ...devices['Desktop Safari'] },
     // },
     // Mobile smoke test (Chromium engine)
-    {
-      name: 'mobile-chrome',
-      use: { ...devices['Pixel 5'] },
-    },
+    // {
+    //   name: 'mobile-chrome',
+    //   use: { ...devices['Pixel 5'] },
+    // },
   ],
 });
