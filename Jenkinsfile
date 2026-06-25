@@ -15,6 +15,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Install Browsers') {
+            steps {
+                sh 'npx playwright install'
+            }
+        }
 
         stage('Test') {
             steps {
