@@ -8,7 +8,7 @@ class CheckboxesPage {
   }
 
   async goto() {
-    await this.page.goto("/checkboxes");
+    await this.page.goto("/checkboxes", { waitUntil: "domcontentloaded" });
   }
 
   async checkFirst() {

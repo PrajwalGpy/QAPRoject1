@@ -9,11 +9,11 @@ class DynamicLoadingPage {
   }
 
   async gotoExample1() {
-    await this.page.goto("/dynamic_loading/1");
+    await this.page.goto("/dynamic_loading/1", { waitUntil: "domcontentloaded" });
   }
 
   async gotoExample2() {
-    await this.page.goto("/dynamic_loading/2");
+    await this.page.goto("/dynamic_loading/2", { waitUntil: "domcontentloaded" });
   }
 
   /**

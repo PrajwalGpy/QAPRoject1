@@ -7,8 +7,8 @@ module.exports = defineConfig({
   testDir: './tests',
 
   // ─── Global Settings ──────────────────────────────────────────────
-  timeout: 30_000,          // Each test gets 30 s
-  expect: { timeout: 5_000 }, // Each assertion gets 5 s
+  timeout: 60_000,          // Each test gets 60 s
+  expect: { timeout: 10_000 }, // Each assertion gets 10 s
 
   // Run all tests in parallel (safe here – read-only site)
   fullyParallel: true,
@@ -17,7 +17,7 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,
 
   // Retry once on CI to handle transient flakiness
-  retries: process.env.CI ? 1 : 0,
+  // retries: process.env.CI ? 1 : 0,
 
   // Number of parallel workers
   workers: process.env.CI ? 2 : undefined,

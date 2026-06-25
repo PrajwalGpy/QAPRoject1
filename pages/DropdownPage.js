@@ -7,7 +7,7 @@ class DropdownPage {
   }
 
   async goto() {
-    await this.page.goto("/dropdown");
+    await this.page.goto("/dropdown", { waitUntil: "domcontentloaded" });
   }
 
   async selectByText(text) {
