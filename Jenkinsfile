@@ -9,15 +9,21 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Install Dependencies') {
             steps {
-                sh 'docker build -t playwright-tests .'
+                sh 'npm install'
+            }
+        }
+
+        stage('Install Browsers') {
+            steps {
+                sh 'npx playwright install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'docker run --rm playwright-tests'
+                sh 'npx playwright test'
             }
         }
     }
