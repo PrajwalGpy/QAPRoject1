@@ -1,11 +1,16 @@
-FROM mcr.microsoft.com/playwright:v1.59.1-jammy
+FROM jenkins/agent:jdk21
 
-WORKDIR /app
+USER root
 
-COPY package*.json ./
+# Install Node.js 22
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get update \
+    && apt-get install -y nodejs
 
-RUN npm install
+# Install Playwright
+RUN npm install -g @playwright/test
 
-COPY . .
+# Install Playwright browsers
+RUN npx playwright install --with-deps
 
-CMD ["npx", "playwright", "test"]
+USER jenkins
