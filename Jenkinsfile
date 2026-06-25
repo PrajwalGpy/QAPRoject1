@@ -1,27 +1,22 @@
 pipeline {
-    agent any
+    agent {
+        label 'playwright-docker'
+    }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Install Browsers') {
-            steps {
-                sh 'npx playwright install'
-            }
-        }
-
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 sh 'npx playwright test'
             }
@@ -30,7 +25,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
+            archiveArtifacts artifacts: 'playwright-report/**'
         }
     }
 }
